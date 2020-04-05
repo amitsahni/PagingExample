@@ -64,8 +64,11 @@ class GithubAdapter :
     }
 
     override fun onBindItemViewHolder(holder: MyItemViewHolder, position: Int) {
-        getItem(position)?.let {
-            holder.bind(position, it)
+        getItem(position)?.let { item ->
+            holder.bind(position, item)
+            holder.itemView.setOnClickListener {
+                clickListener?.invoke(position, item)
+            }
         }
     }
 

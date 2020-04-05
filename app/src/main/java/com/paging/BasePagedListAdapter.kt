@@ -17,8 +17,8 @@ import kotlinx.android.extensions.LayoutContainer
 
 abstract class BasePagedListAdapter<VH : RecyclerView.ViewHolder, T> :
     PagedListAdapter<T, RecyclerView.ViewHolder>(DiffCallback()) {
-    private var clickListener: ((Int, T) -> Unit?)? = null
-    private var longClickListener: ((Int, T) -> Unit?)? = null
+    var clickListener: ((Int, T) -> Unit?)? = null
+    var longClickListener: ((Int, T) -> Unit?)? = null
     internal val clickPosition = MutableLiveData<Item<T>>()
 
     fun click(f: (Int, T) -> Unit) {
